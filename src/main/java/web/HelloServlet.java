@@ -1,4 +1,4 @@
-package com.example.cupcakedemoeksamen;
+package web;
 
 import java.io.*;
 import javax.servlet.http.*;

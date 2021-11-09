@@ -8,7 +8,8 @@ img
 }
 
 .btn-primary, .btn-primary:hover, .btn-primary:active, .btn-primary:visited {
-    background-color: #3c1361 !important;
+    background-color: #d6b387 !important;
+    border: #d6b387 !important;
 }
 
 th
@@ -24,15 +25,25 @@ th
 
 .icon
 {
-    color: #3c1361;
+    color: #d6b387;
     float:right;
     margin-right: 10px;
+    margin-top: 1px;
 }
 
-button
+.mainPageButton
 {
     position: sticky;
-    left: 42%;
+    left: 45%;
+}
+
+.homePageIcon
+{
+    color: #d6b387;
+    float: left;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 1px;
 }
 
 .bannerSize
@@ -53,6 +64,3 @@ h4
 {
     text-align: center;
 }
-
-
-
