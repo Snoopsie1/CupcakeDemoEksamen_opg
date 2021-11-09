@@ -15,7 +15,20 @@ public class ControllerServlet extends HttpServlet
     {
         HttpSession httpSession = request.getSession();
 
-        //TODO: Hente en bruger fra databasen og validerer brugerens username og password
+        //TODO: Lav en if der checker om email og password er i databasen. Hvis den finder et match,
+        // så fører den bare brugeren videre
+        // pseudo kode:
+        // for (User u: DB.GetAllUsers())
+        // {
+        //  if(userEmail == u.getEmail() && userPassword == u.getPassword())
+        //  {
+        //      Du er logget ind! Top dollar!
+        //   }
+        // }
+
+        //Basically skønne drenge, den her servlet er den der dealer med al trafik på indexSiden.
+        //Hvis en bruger trykker på kurv, kunde info, odrer osv. Så går det gennem her
+        // Hvis det ikke giver mening, så skrot det :P
 
 
         request.getRequestDispatcher("/WEB-INF/kunde.jsp").forward(request, response);

@@ -121,21 +121,24 @@
     <div class="jumbotron" style="padding: 2%;">
         <h1 class="display-4"><b>Velkommen ombord </b></h1>
         <h4> Venligst login her: </h4>
-        <form action="ControllerServlet">
+        <form action="ControllerServlet" method="get">
             <div class="form-group" style="padding-right: 30%; padding-left: 30%;">
-                <label for="exampleInputEmail1">Email address</label>
-                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                <label for="userEmail">Email address</label>
+                <input type="email" class="form-control" id="userEmail" name="userEmail" aria-describedby="emailHelp"
                        placeholder="Email">
                 <small id="emailHelp" class="form-text text-muted" style="padding-left:0.5%;">Din email er vores
                     hemmelighed</small>
             </div>
             <div class="form-group" style="padding-right: 30%; padding-left: 30%;">
-                <label for="exampleInputPassword1">Password</label>
-                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                <label for="userPassword">Password</label>
+                <input type="password" class="form-control" id="userPassword" name="userPassword" placeholder="Password">
             </div>
             <button type="submit" class="btn btn-primary" style="margin-left: 45%;">Log ind</button>
         </form>
 
+        <form action="RegisterServlet" method="post">
+            <button type="submit" class="btn btn-primary" id="registrationBtn" style="margin-left: 45%">Registrer dig her!</button>
+        </form>
 
     </div>
 
