@@ -1,7 +1,5 @@
 package web.filter;
 
-import business.entities.User;
-
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
@@ -26,17 +24,22 @@ public class ControllerServlet extends HttpServlet
         //   }
         // }
 
-        //Basically skønne drenge, den her servlet er den der dealer med al trafik på indexSiden.
-        //Hvis en bruger trykker på kurv, kunde info, odrer osv. Så går det gennem her
-        // Hvis det ikke giver mening, så skrot det :P
 
 
-        request.getRequestDispatcher("/WEB-INF/kunde.jsp").forward(request, response);
+
+
+        request.getRequestDispatcher("/WEB-INF/login.jsp").forward(request, response);
     }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
     {
+        // TODO: SOM KUNDE -
+        // Kan du se navn, adresse, post nr, whatever
+
+        //TODO: Som admin -
+        // Se alle kunder.
+
 
     }
 }

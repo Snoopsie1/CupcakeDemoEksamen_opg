@@ -1,14 +1,41 @@
 package business.entities;
 
+import java.util.List;
+
 public class Cupcake
 {
-    String topping;
-    String bund;
+    private int cupcakeId;
+    private int toppingId;
+    private int bundId;
 
-    public Cupcake(String topping, String bund)
+    List<Cupcake> cupcakeList;
+
+    public Cupcake(int toppingId, int bundId)
     {
-        this.topping = topping;
-        this.bund = bund;
+        this.toppingId = toppingId;
+        this.bundId = bundId;
     }
 
+    public Cupcake(int cupcakeId, int toppingId, int bundId)
+    {
+        this.cupcakeId = cupcakeId;
+        this.toppingId = toppingId;
+        this.bundId = bundId;
+    }
+
+    public int getCupcakeId() {
+        return cupcakeId;
+    }
+
+    public int getToppingId() {
+        return toppingId;
+    }
+
+    public int getBundId() {
+        return bundId;
+    }
+
+    public List<Cupcake> getCupcakeList() {
+        return cupcakeList;
+    }
 }
