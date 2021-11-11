@@ -1,4 +1,5 @@
 package business.services;
+
 import java.util.Properties;
 import javax.mail.Message;
 import javax.mail.MessagingException;
@@ -22,7 +23,8 @@ public class SendEmail
         properties.put("mail.smtp.ssl.enable", "true");
         properties.put("mail.smtp.auth", "true");
 
-        Session session = Session.getInstance(properties, new javax.mail.Authenticator() {
+        Session session = Session.getInstance(properties, new javax.mail.Authenticator()
+        {
 
             protected PasswordAuthentication getPasswordAuthentication()
             {
@@ -35,7 +37,8 @@ public class SendEmail
 
         session.setDebug(true);
 
-        try {
+        try
+        {
             // Create a default MimeMessage object.
             MimeMessage message = new MimeMessage(session);
 
@@ -49,13 +52,19 @@ public class SendEmail
             message.setSubject("Order confirmation!");
 
             // Now set the actual message
-            message.setText("jeg synes du er en meget flot mand");
+            message.setText("\n" +
+                    "- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -" +
+                    "Mange tak for bestillingen!"+
+                    "Det her er din ordre:" +
+                    "- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -"
+            );
 
             System.out.println("sending...");
             // Send message
             Transport.send(message);
             System.out.println("Sent message successfully....");
-        } catch (MessagingException mex) {
+        } catch (MessagingException mex)
+        {
             mex.printStackTrace();
         }
     }
