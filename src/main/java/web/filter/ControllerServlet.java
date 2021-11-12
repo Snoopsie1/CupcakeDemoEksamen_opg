@@ -1,5 +1,7 @@
 package web.filter;
 
+import business.entities.Kunde;
+
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
@@ -11,24 +13,7 @@ public class ControllerServlet extends HttpServlet
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
     {
-        HttpSession httpSession = request.getSession();
 
-        //TODO: Lav en if der checker om email og password er i databasen. Hvis den finder et match,
-        // så fører den bare brugeren videre
-        // pseudo kode:
-        // for (User u: DB.GetAllUsers())
-        // {
-        //  if(userEmail == u.getEmail() && userPassword == u.getPassword())
-        //  {
-        //      Du er logget ind! Top dollar!
-        //   }
-        // }
-
-
-
-
-
-        request.getRequestDispatcher("/WEB-INF/login.jsp").forward(request, response);
     }
 
     @Override
@@ -39,6 +24,29 @@ public class ControllerServlet extends HttpServlet
 
         //TODO: Som admin -
         // Se alle kunder.
+
+        HttpSession httpSession = request.getSession();
+
+
+        String act = request.getParameter("act");
+        Kunde kunde = (Kunde) httpSession.getAttribute("loginKunde");
+        String destination = "";
+
+        if (kunde != null)
+        {
+            if (act.equals("ordreKnap"))
+            {
+                request.getRequestDispatcher("/WEB-INF/ordre.jsp").forward(request, response); // Skal laves
+            }
+            if (act.equals("kundeKnap"))
+            {
+                request.getRequestDispatcher("/WEB-INF/kundeInfo.jsp").forward(request, response);
+            }
+        } else
+        {
+            request.getRequestDispatcher("/WEB-INF/login.jsp").forward(request, response);
+        }
+
 
 
     }

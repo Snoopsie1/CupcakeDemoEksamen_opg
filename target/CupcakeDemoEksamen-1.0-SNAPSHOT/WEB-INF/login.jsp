@@ -8,7 +8,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@include file="../includes/header.inc" %>
 
-
+<div class="container-fluid">
     <div class="jumbotron" style="padding: 2%;">
         <h1 class="display-4"><b>Velkommen ombord </b></h1>
         <h4> Venligst login her: </h4>
@@ -22,19 +22,22 @@
             </div>
             <div class="form-group" style="padding-right: 30%; padding-left: 30%;">
                 <label for="loginPassword">Password</label>
-                <input type="password" class="form-control" id="loginPassword" name="loginPassword" placeholder="Password">
+                <input type="password" class="form-control" id="loginPassword" name="loginPassword"
+                       placeholder="Password">
             </div>
             <div style="color: darkred; margin-left: 37%;">${requestScope.fejlBesked}</div>
             <br>
             <button type="submit" class="btn btn-primary" value="loginButton" style="margin-left: 45%;">Log ind</button>
         </form>
-    <br>
+        <br>
         <form action="RegisterServlet">
-            <button type="submit" class="btn btn-primary" value="regButton" style="margin-left: 42%">Registrer dig her!</button>
+            <button type="submit" class="btn btn-primary" value="regButton" style="margin-left: 42%">Registrer dig
+                her!
+            </button>
         </form>
     </div>
 </div>
-
+</div>
 
 
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"

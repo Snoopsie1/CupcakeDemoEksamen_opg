@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE html> <!-- DER SKAL ABSOLUT IKKE RØRES VED DENNE FUARCKING FIL -->
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -7,17 +7,50 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
           integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
-    <header>
-        <img src="pictures/the-creation-of-Nikolaj.png" alt="banner">
-    </header>
-
 </head>
 <body>
 
+<style>
 
-<!--<img src="../gifs/cupcake.gif" alt="gifman"-->
-<!--style="width:50%;height:50%;">-->
+    .actLink {
+        color: #ababab;
+        margin-left: 5px;
+        padding: 0;
+        border: none;
+        background: none;
+        font-size: 20px;
+        position: relative;
+        top: 11px;
+        cursor: pointer;
+        text-decoration: none;
+    }
 
+    .actLink:hover {
+        color: #d6b387;
+    }
+
+    .homePaceIcon:hover {
+        background: #d6b387;
+    }
+
+    .icon {
+        color: #d6b387;
+        float: right;
+        margin-right: 15px;
+    }
+
+    .theImage {
+        width: 100%;
+        min-width: 300px;
+        object-fit: contain;
+        object-fit: cover;
+        overflow: hidden;
+    }
+</style>
+
+<header>
+    <img class="theImage bannerImg" src="pictures/the-creation-of-Nikolaj.png" alt="banner">
+</header>
 
 <div class="container-fluid">
     <div class="bannerSize">
@@ -26,8 +59,8 @@
             <a href="index.jsp" class="homePageIcon">
                 <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg"
                      xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-                     width="16" height="16" viewBox="0 0 583.007 583.007"
-                     style="enable-background:new 0 0 583.007 583.007;"
+                     width="32" height="32" viewBox="0 0 583.007 583.007"
+                     style="enable-background:new 0 0 583.007 583.007; padding-top: 3px; margin-top: 4px;"
                      xml:space="preserve" fill="currentColor">
 <g>
 	<g id="Layer_1_159_">
@@ -95,21 +128,26 @@
         </span>
         <!--  Slutningen på den forfærdelige SVG Kode til at lave homePage Icon. Please ignore this -->
 
+        <div style="width: 400px; height: 20px;">
+            <form action="ControllerServlet" method="post">
+                <button type="submit" name="act" value="kundeKnap" class="actLink btn-link"
+                                    style="text-decoration: none; margin-bottom: 1px;">Kunde info
+                </button>
+                <button type="submit" name="act" value="ordreKnap" class="actLink btn-link"
+                                        style="text-decoration: none;  margin-left: 30px;">Ordrer
+                </button>
+            </form>
+        </div>
 
-        <a href="RegisterServlet" class="bannerText" style="text-decoration: none;">Ordrer</a> <!-- Skal ændres -->
-        &ensp;
-        &emsp;
-        <a href="ControllerServlet" class="bannerText" style="text-decoration: none;"> Kunde info </a>
 
-            <span style="color: #d6b387; margin-left: 67%;">${sessionScope.kundeNavn} </span>
-
-
-        <span class="icon">
-            <a href="basket.html" class="icon">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bag"
-                     viewBox="0 0 16 16">
-                    <path d="M8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1zm3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4h-3.5zM2 5h12v9a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V5z"/>
+          <span class="basketIcon">
+          <p class="loggedInName">${sessionScope.kundeNavn}</p>
+             <a href="basket.html" class="basketIcon">
+               <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-basket-fill" viewBox="0 0 16 16">
+                   <path d="M5.071 1.243a.5.5 0 0 1 .858.514L3.383 6h9.234L10.07 1.757a.5.5 0 1 1 .858-.514L13.783 6H15.5a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.5.5H15v5a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V9H.5a.5.5 0 0 1-.5-.5v-2A.5.5 0 0 1 .5 6h1.717L5.07 1.243zM3.5 10.5a.5.5 0 1 0-1 0v3a.5.5 0 0 0 1 0v-3zm2.5 0a.5.5 0 1 0-1 0v3a.5.5 0 0 0 1 0v-3zm2.5 0a.5.5 0 1 0-1 0v3a.5.5 0 0 0 1 0v-3zm2.5 0a.5.5 0 1 0-1 0v3a.5.5 0 0 0 1 0v-3zm2.5 0a.5.5 0 1 0-1 0v3a.5.5 0 0 0 1 0v-3z"/>
                 </svg>
-            </a>
-        </span>
+             </a>
+          </span>
     </div>
+</div>
+</div>

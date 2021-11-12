@@ -1,4 +1,4 @@
-<!DOCTYPE html> <!-- DER SKAL ABSOLUT IKKE RØRES VED DENNE FUARCKING FIL -->
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -20,7 +20,7 @@
         background: none;
         font-size: 20px;
         position: relative;
-        top: 11px;
+        top: 13px;
         cursor: pointer;
         text-decoration: none;
     }
@@ -41,7 +41,7 @@
 
     .theImage {
         width: 100%;
-        min-width: 300px;
+        min-width: 600px;
         object-fit: contain;
         object-fit: cover;
         overflow: hidden;
@@ -130,24 +130,27 @@
 
         <div style="width: 400px; height: 20px;">
             <form action="ControllerServlet" method="post">
-                <button type="submit" name="act" value="kundeKnap" class="actLink btn-link"
-                                    style="text-decoration: none; margin-bottom: 1px;">Kunde info
-                </button>
                 <button type="submit" name="act" value="ordreKnap" class="actLink btn-link"
-                                        style="text-decoration: none;  margin-left: 30px;">Ordrer
+                        style="text-decoration: none;">Ordrer
+                </button>
+                <button type="submit" name="act" value="kundeKnap" class="actLink btn-link"
+                        style="text-decoration: none; margin-left: 30px;">Kunde info
                 </button>
             </form>
         </div>
 
+        <span style="color: #d6b387; margin-left: 67%;">${sessionScope.kundeNavn}
 
-          <span class="basketIcon">
-          <p class="loggedInName">${sessionScope.kundeNavn}</p>
-             <a href="basket.html" class="basketIcon">
-               <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-basket-fill" viewBox="0 0 16 16">
-                   <path d="M5.071 1.243a.5.5 0 0 1 .858.514L3.383 6h9.234L10.07 1.757a.5.5 0 1 1 .858-.514L13.783 6H15.5a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.5.5H15v5a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V9H.5a.5.5 0 0 1-.5-.5v-2A.5.5 0 0 1 .5 6h1.717L5.07 1.243zM3.5 10.5a.5.5 0 1 0-1 0v3a.5.5 0 0 0 1 0v-3zm2.5 0a.5.5 0 1 0-1 0v3a.5.5 0 0 0 1 0v-3zm2.5 0a.5.5 0 1 0-1 0v3a.5.5 0 0 0 1 0v-3zm2.5 0a.5.5 0 1 0-1 0v3a.5.5 0 0 0 1 0v-3zm2.5 0a.5.5 0 1 0-1 0v3a.5.5 0 0 0 1 0v-3z"/>
-                </svg>
-             </a>
-          </span>
+            <span class="basketIcon">
+                   <a href="basket.html" class="basketIcon">
+                       <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" class="bi bi-basket-fill"
+                            viewBox="0 0 16 16" style="enable-background:new 0 0 16 16;"
+                            xml:space="preserve" fill="currentColor">
+                         <path d="M5.071 1.243a.5.5 0 0 1 .858.514L3.383 6h9.234L10.07 1.757a.5.5 0 1 1 .858-.514L13.783 6H15.5a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.5.5H15v5a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V9H.5a.5.5 0 0 1-.5-.5v-2A.5.5 0 0 1 .5 6h1.717L5.07 1.243zM3.5 10.5a.5.5 0 1 0-1 0v3a.5.5 0 0 0 1 0v-3zm2.5 0a.5.5 0 1 0-1 0v3a.5.5 0 0 0 1 0v-3zm2.5 0a.5.5 0 1 0-1 0v3a.5.5 0 0 0 1 0v-3zm2.5 0a.5.5 0 1 0-1 0v3a.5.5 0 0 0 1 0v-3zm2.5 0a.5.5 0 1 0-1 0v3a.5.5 0 0 0 1 0v-3z"/>
+                       </svg>
+                   </a>
+            </span>
+        </span>
     </div>
 </div>
 </div>

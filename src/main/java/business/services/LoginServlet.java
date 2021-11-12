@@ -52,6 +52,8 @@ public class LoginServlet extends HttpServlet
             }
 
             httpSession.setAttribute("kundeNavn", navn); //SKAL BRUGES
+            httpSession.setAttribute("loginKunde", loginKunde);
+
 
             request.getRequestDispatcher("/index.jsp").forward(request, response);
 

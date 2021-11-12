@@ -11,6 +11,8 @@ import javax.mail.internet.MimeMessage;
 
 public class SendEmail
 {
+
+
     String to = "christian.ccsgamers@gmail.com";
     String from = "OlskerLotta@gmail.com";
     String host = "smtp.gmail.com";
@@ -18,6 +20,9 @@ public class SendEmail
 
     public void sendmail()
     {
+        //TODO: Få metoden til at tage imod en array af strings som den kan bruge i message.setText
+        // hvor der står pænt hvad man har bestilt.
+
         properties.put("mail.smtp.host", host);
         properties.put("mail.smtp.port", "465");
         properties.put("mail.smtp.ssl.enable", "true");

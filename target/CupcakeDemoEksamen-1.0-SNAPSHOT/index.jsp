@@ -2,8 +2,7 @@
 
 <%@include file="includes/header.inc" %>
 
-${scop}
-
+<div class="container-fluid">
     <div class="jumbotron">
         <h1 class="display-4"><b>Velkommen ombord </b></h1>
         <h4> Øens bedste cupcakes. Vælg og bestil her:</h4>
@@ -171,8 +170,8 @@ ${scop}
             </tr>
             </tbody>
         </table>
-
     </div>
+</div>
 
 
 </div>
