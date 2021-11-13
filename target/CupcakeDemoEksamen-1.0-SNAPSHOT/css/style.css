@@ -7,7 +7,13 @@
     padding-bottom: 4px;
 }
 
-.btn-primary, .btn-primary:hover, .btn-primary:active, .btn-primary:visited {
+.btn-primary:hover
+{
+    background-color: #685540; !important;
+    color: #685540; !important;
+}
+
+.btn-primary, .btn-primary:active, .btn-primary:visited {
     background-color: #d6b387 !important;
     border: #d6b387 !important;
 }
@@ -38,6 +44,7 @@ th
     position: sticky;
     left: 45%;
 }
+
 
 .loggedInName
 {

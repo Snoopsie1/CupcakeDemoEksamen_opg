@@ -40,6 +40,8 @@ public class ControllerServlet extends HttpServlet
             }
             if (act.equals("kundeKnap"))
             {
+                String editAct = request.getParameter("editAct");
+//                if(editKnapTrykkes gør det her)
                 request.getRequestDispatcher("/WEB-INF/kundeInfo.jsp").forward(request, response);
             }
         } else

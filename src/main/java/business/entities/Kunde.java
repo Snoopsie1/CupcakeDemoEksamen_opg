@@ -19,8 +19,9 @@ public class Kunde
 
     List<Kunde> kundeList;
 
+    boolean isEditing = false;
 
-    public Kunde(String name,String email,String password,String address, int postNr)
+    public Kunde(String name, String email, String password, String address, int postNr)
     {
         this.name = name;
         this.password = password;
@@ -41,6 +42,16 @@ public class Kunde
 
     public String getName() {
         return name;
+    }
+
+    public String encryptPassword()
+    {
+        String encryptedPass = "*";
+        for (int i = 0; i < password.length(); i++)
+        {
+            encryptedPass += "*";
+        }
+        return encryptedPass;
     }
 
     public String getPassword() {
@@ -69,6 +80,11 @@ public class Kunde
 
     public void setKundeList(List<Kunde> kundeList) {
         this.kundeList = kundeList;
+    }
+
+    public void setEditing(boolean editing)
+    {
+        isEditing = editing;
     }
 
     public void setKundeId(int kundeId) {
