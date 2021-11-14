@@ -49,12 +49,9 @@
             <br>
             <br>
             <br>
-            <div class="row" style="margin-right: 20%;">
-                <div class="col-md-3 ml-md-auto">
-                    <button type="submit" class="btn btn-primary btn-lg">Discard Changes</button>
-                </div>
-                <div class="col-md-3 ml-md-auto">
-                    <button type="submit" class="btn btn-primary btn-lg">Save Changes</button>
+            <div class="row" style="margin-left: 44%;">
+                <div class="col-md-3">
+                    <button type="submit" class="btn btn-primary btn-lg">Edit info</button>
                 </div>
             </div>
         </form>

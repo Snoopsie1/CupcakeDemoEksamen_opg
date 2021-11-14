@@ -1,11 +1,3 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: oliverrasoli
-  Date: 12/11/2021
-  Time: 12.21
-  To change this template use File | Settings | File Templates.
---%>
-<%@include file="../includes/header.inc" %>
 <div class="container-fluid">
     <div class="jumbotron">
         <h2 style="text-align: center;"> Account Info </h2>
@@ -49,14 +41,3 @@
             <br>
             <br>
             <br>
-            <div class="row" style="margin-left: 44%;">
-                <div class="col-md-3">
-                    <button type="submit" class="btn btn-primary btn-lg">Edit info</button>
-                </div>
-            </div>
-        </form>
-    </div>
-</div>
-
-</body>
-</html>
