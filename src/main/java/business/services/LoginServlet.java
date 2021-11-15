@@ -22,7 +22,6 @@ public class LoginServlet extends HttpServlet
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
     {
         HttpSession httpSession = request.getSession();
-        ServletContext context = request.getServletContext();
         DBConnector dbConnector = new DBConnector();
         Kunde registerKunde = (Kunde) request.getAttribute("nyKunde");
         String navn = "";

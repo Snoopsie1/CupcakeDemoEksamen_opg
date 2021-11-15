@@ -131,6 +131,31 @@ public class DBConnector {
         return result;
     }
 
+    public String updateKunde(Kunde kunde)
+    {
+        loadDriver(dbdriver);
+        Connection con = getConnection();
+        String result = "";
+        result = "data entered succesfully";
+        String sql = "UPDATE CupcakeDB.kunder SET navn=?, email=?, password=?, adresse=?, postNr=? WHERE kunde_id="+kunde.getKundeId();
+        try
+        {
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setString(1, kunde.getName());
+            ps.setString(2, kunde.getEmail());
+            ps.setString(3, kunde.getPassword());
+            ps.setString(4, kunde.getAddress());
+            ps.setInt(5, kunde.getPostNr());
+            ps.executeUpdate();
+        }
+        catch (SQLException e)
+        {
+            e.printStackTrace();
+            result = "Data not entered";
+        }
+        return result;
+    }
+
     public Kunde receiveKunde(String emailInput, String passwordInput)
     {
         loadDriver(dbdriver);
@@ -166,8 +191,6 @@ public class DBConnector {
         }
         return null;
     }
-
-
     public List receiveOrder(Kunde kunde) {
         loadDriver(dbdriver);
         Connection con = getConnection();

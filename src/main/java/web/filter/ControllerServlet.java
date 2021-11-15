@@ -30,7 +30,6 @@ public class ControllerServlet extends HttpServlet
 
         String act = request.getParameter("act");
         Kunde kunde = (Kunde) httpSession.getAttribute("loginKunde");
-        String destination = "";
 
         if (kunde != null)
         {
