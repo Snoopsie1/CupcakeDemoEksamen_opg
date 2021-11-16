@@ -1,5 +1,7 @@
 package business.entities;
 
+import business.persistence.DBConnector;
+
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -16,21 +18,21 @@ public class Kunde
     private int postNr;
     private String password;
     private String email;
+    private boolean isAdmin = false;
 
     List<Kunde> kundeList;
 
-    boolean isEditing = false;
-
-    public Kunde(String name, String email, String password, String address, int postNr)
+    public Kunde(String name, String email, String password, String address, int postNr, boolean isAdmin)
     {
         this.name = name;
         this.password = password;
         this.address = address;
         this.email = email;
         this.postNr = postNr;
+        this.isAdmin = isAdmin;
     }
 
-    public Kunde(int kundeId, String name, String email, String password, String address, int postNr)
+    public Kunde(int kundeId, String name, String email, String password, String address, int postNr, boolean isAdmin)
     {
         this.kundeId = kundeId;
         this.name = name;
@@ -38,6 +40,7 @@ public class Kunde
         this.password = password;
         this.address = address;
         this.postNr = postNr;
+        this.isAdmin = isAdmin;
     }
 
     public String getName() {
@@ -82,11 +85,6 @@ public class Kunde
         this.kundeList = kundeList;
     }
 
-    public void setEditing(boolean editing)
-    {
-        isEditing = editing;
-    }
-
     public void setKundeId(int kundeId) {
         this.kundeId = kundeId;
     }
@@ -109,5 +107,26 @@ public class Kunde
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public int getIsAdmin()
+    {
+        int tinyIntBoolean;
+
+        if(this.isAdmin == false)
+        {
+            tinyIntBoolean = 0;
+        }
+        else
+        {
+            tinyIntBoolean = 1;
+        }
+
+        return tinyIntBoolean;
+    }
+
+    public void setAdmin(boolean admin)
+    {
+        isAdmin = admin;
     }
 }

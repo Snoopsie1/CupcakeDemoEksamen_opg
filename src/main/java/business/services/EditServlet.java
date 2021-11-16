@@ -14,6 +14,14 @@ public class EditServlet extends HttpServlet
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
     {
+        HttpSession httpSession = request.getSession();
+
+        Kunde kunde = (Kunde) httpSession.getAttribute("loginKunde");
+
+        if(kunde.getIsAdmin() == 1)
+        {
+
+        }
         request.getRequestDispatcher("/WEB-INF/editKundeInfo.jsp").forward(request, response);
     }
 
@@ -36,7 +44,14 @@ public class EditServlet extends HttpServlet
 
         if (act.equals("DiscardKnap"))
         {
+            if (kunde.getIsAdmin() == 1)
+            {
+                request.getRequestDispatcher("/WEB-INF/adminKundeInfo.jsp").forward(request, response);
+            }
+            else
+            {
             request.getRequestDispatcher("/WEB-INF/kundeInfo.jsp").forward(request, response);
+            }
         }
         if (act.equals("gemKnap"))
         {
@@ -63,7 +78,14 @@ public class EditServlet extends HttpServlet
             }
             httpSession.setAttribute("loginKunde", kunde);
             httpSession.setAttribute("kundeNavn", navn);
+            if(kunde.getIsAdmin() == 1)
+            {
+                request.getRequestDispatcher("/WEB-INF/adminKundeInfo.jsp").forward(request, response);
+            }
+            else
+            {
             request.getRequestDispatcher("/WEB-INF/kundeInfo.jsp").forward(request, response);
+            }
         }
 
     }

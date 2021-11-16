@@ -30,7 +30,8 @@ public class RegisterServlet extends HttpServlet
         int postNr = Integer.parseInt(request.getParameter("kundePostNr"));
         String email = request.getParameter("kundeEmail");
         String password = request.getParameter("kundePassword");
-        Kunde nyKunde = new Kunde(navn, email, password, adresse, postNr);
+        boolean isAdmin = false;
+        Kunde nyKunde = new Kunde(navn, email, password, adresse, postNr, isAdmin);
 
         try
         {

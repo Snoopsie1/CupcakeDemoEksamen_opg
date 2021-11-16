@@ -42,7 +42,7 @@ public class DBConnector {
         if (object instanceof Kunde) {
             result = "data entered succesfully";
             Kunde kunde = (Kunde) object;
-            String sql = "insert into CupcakeDB.kunder(navn,email,password,adresse,postNr) values(?,?,?,?,?)";
+            String sql = "insert into CupcakeDB.kunder(navn,email,password,adresse,postNr, isAdmin) values(?,?,?,?,?,?)";
             try {
                 PreparedStatement ps = con.prepareStatement(sql);
                 ps.setString(1, kunde.getName());
@@ -50,6 +50,7 @@ public class DBConnector {
                 ps.setString(3, kunde.getPassword());
                 ps.setString(4, kunde.getAddress());
                 ps.setInt(5, kunde.getPostNr());
+                ps.setInt(6, kunde.getIsAdmin());
                 try
                 {
                     ps.executeUpdate();
@@ -137,7 +138,7 @@ public class DBConnector {
         Connection con = getConnection();
         String result = "";
         result = "data entered succesfully";
-        String sql = "UPDATE CupcakeDB.kunder SET navn=?, email=?, password=?, adresse=?, postNr=? WHERE kunde_id="+kunde.getKundeId();
+        String sql = "UPDATE CupcakeDB.kunder SET navn=?, email=?, password=?, adresse=?, postNr=?, isAdmin=? WHERE kunde_id="+kunde.getKundeId();
         try
         {
             PreparedStatement ps = con.prepareStatement(sql);
@@ -146,6 +147,7 @@ public class DBConnector {
             ps.setString(3, kunde.getPassword());
             ps.setString(4, kunde.getAddress());
             ps.setInt(5, kunde.getPostNr());
+            ps.setInt(6,kunde.getIsAdmin());
             ps.executeUpdate();
         }
         catch (SQLException e)
@@ -179,9 +181,19 @@ public class DBConnector {
                 int postNr = rs.getInt("postNr");
                 String password = rs.getString("password");
                 String email = rs.getString("email");
+                boolean isAdmin;
+                int tinyIntIsAdmin = rs.getInt("isAdmin");
+                if (tinyIntIsAdmin == 1)
+                {
+                    isAdmin = true;
+                }
+                else
+                {
+                    isAdmin = false;
+                }
                 if (emailInput.equals(email) && passwordInput.equals(password))
                 {
-                    kunde = new Kunde(kundeId, navn, email, password, adresse, postNr);
+                    kunde = new Kunde(kundeId, navn, email, password, adresse, postNr, isAdmin);
                     return kunde;
                 }
             }
@@ -191,6 +203,52 @@ public class DBConnector {
         }
         return null;
     }
+
+    public List<Kunde> receiveAllKunder()
+    {
+        loadDriver(dbdriver);
+        Connection con = getConnection();
+        Statement stmt = null;
+        List<Kunde> kundeList = new ArrayList<>();
+        Kunde kunde;
+        try {
+            stmt = con.createStatement();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        String sql = " SELECT * FROM CupcakeDB.kunder";
+        try
+        {
+            ResultSet rs = stmt.executeQuery(sql);
+            while (rs.next()) {
+                int kundeId = rs.getInt("kunde_id");
+                String navn = rs.getString("navn");
+                String adresse = rs.getString("adresse");
+                int postNr = rs.getInt("postNr");
+                String password = rs.getString("password");
+                String email = rs.getString("email");
+                boolean isAdmin;
+                int tinyIntIsAdmin = rs.getInt("isAdmin");
+                if (tinyIntIsAdmin == 1)
+                {
+                    isAdmin = true;
+                }
+                else
+                {
+                    isAdmin = false;
+                }
+
+                kunde = new Kunde(kundeId, navn, email, password, adresse, postNr, isAdmin);
+                kundeList.add(kunde);
+
+            }
+        } catch (SQLException e)
+        {
+            e.printStackTrace();
+        }
+        return kundeList;
+    }
+
     public List receiveOrder(Kunde kunde) {
         loadDriver(dbdriver);
         Connection con = getConnection();

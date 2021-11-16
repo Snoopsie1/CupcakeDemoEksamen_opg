@@ -45,10 +45,10 @@ public class LoginServlet extends HttpServlet
             }
 
 
-            if (navn.length() > 9)
-            {
-                navn = navn.substring(0, 9);
-            }
+//            if (navn.length() > 9)
+//            {
+//                navn = navn.substring(0, 9);
+//            }
 
             httpSession.setAttribute("kundeNavn", navn); //SKAL BRUGES
             httpSession.setAttribute("loginKunde", loginKunde);
