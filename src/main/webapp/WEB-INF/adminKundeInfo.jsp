@@ -81,7 +81,7 @@
            <div class="col">Post Nr.</div>
        </div>
         <br>
-        <c:forEach var="kunde" items="$sssessionScope.kundeList}">
+        <c:forEach var="kunde" items="${sessionScope.kundeList}">
             <div class="row">
                 <div class="col">${kunde.name}</div>
                 <div class="col">${kunde.email}</div>
